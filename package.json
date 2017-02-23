@@ -1,0 +1,22 @@
+{
+  "name": "mongodb-course",
+  "version": "1.0.0",
+  "description": "mongodb-course",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miltonbecker/mongodb-course.git"
+  },
+  "author": "Milton Becker Junior",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miltonbecker/mongodb-course/issues"
+  },
+  "homepage": "https://github.com/miltonbecker/mongodb-course#readme",
+  "devDependencies": {
+    "@types/mongodb": "^2.1.40"
+  }
+}
