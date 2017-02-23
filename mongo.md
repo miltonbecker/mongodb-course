@@ -11,6 +11,7 @@ You can store any type of data that you can use in JavaScript: strings, numbers,
 ## Some commands:
 
 Show the databases:
+
 `show dbs`
 
 Select or create the 'cities' database:
