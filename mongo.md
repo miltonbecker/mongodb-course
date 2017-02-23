@@ -36,5 +36,6 @@ is called a **query parameter**.
 There is also the **update parameter** which is passed to the update method.
 The update parameter uses an **update operator** which, in the case below, is ``$set``.
 **Operators** always start with a **$**.
-
-    db.cities.update({ "name": "Paris" }, { "$set": { "rating": 10 } })
+```javascript 
+db.cities.update({ "name": "Paris" }, { "$set": { "rating": 10 } })
+``` 
