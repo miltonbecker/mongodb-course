@@ -10,18 +10,17 @@ You can store any type of data that you can use in JavaScript: strings, numbers,
 
 ## Some commands:
 
-Show the databases:
-
+Show the databases: 
 `show dbs`
 
-Select or create the 'cities' database:
-`use cities`
+Select or create the 'cities' database: 
+    use cities
 
 Insert a document into the cities collection:
-`db.cities.insert({ "name": "Paris", "country": "France" })`
+    db.cities.insert({ "name": "Paris", "country": "France" })
 
 Find documents which have country == France:
-`db.cities.find({ "country": "France" })`
+    db.cities.find({ "country": "France" })
 
 Remove documents which have country == France:
 `db.cities.remove({ "country": "France" })`
