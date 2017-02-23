@@ -11,24 +11,34 @@ You can store any type of data that you can use in JavaScript: strings, numbers,
 ## Some commands:
 
 Show the databases: 
-    
-    show dbs
+
+```
+show dbs
+```
 
 Select or create the 'cities' database:
 
-    use cities
+```
+use cities
+```
 
 Insert a document into the cities collection:
-    
-    db.cities.insert({ "name": "Paris", "country": "France" })
+
+```javascript
+db.cities.insert({ "name": "Paris", "country": "France" })
+```
 
 Find documents which have country == France:
-    
-    db.cities.find({ "country": "France" })
+
+```javascript
+db.cities.find({ "country": "France" })
+```
 
 Remove documents which have country == France:
-    
-    db.cities.remove({ "country": "France" })
+
+```javascript
+db.cities.remove({ "country": "France" })
+```
 
 On the find and remove examples above, the object passed to the methods
 is called a **query parameter**.
