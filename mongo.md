@@ -22,11 +22,15 @@ Select or create the 'cities' database:
 use cities
 ```
 
+## Insert 
+
 Insert a document into the cities collection:
 
 ```javascript
 db.cities.insert({ "name": "Paris", "country": "France" })
 ```
+
+## Find
 
 Find documents which have country == France:
 
@@ -40,6 +44,8 @@ Find documents which have country == France and rating == 10:
 db.cities.find({ "country": "France", "rating": 10 })
 ```
 
+## Remove Document 
+
 Remove documents which have country == France:
 
 ```javascript
@@ -48,6 +54,8 @@ db.cities.remove({ "country": "France" })
 
 On the find and remove examples above, the object passed to the methods
 is called a **query parameter**.
+
+## Update 
 
 There is also the **update parameter** which is passed to the update method.
 The update parameter uses an **update operator** which, in the case below, is ``$set``.
@@ -99,7 +107,9 @@ db.cities.update(
 ```
 The document created would have 2 properties: country and rating. 
 
-To **remove a property** from all documents in the collection:
+## Remove Field
+
+To **remove a field/property** from all documents in the collection:
 
 ```javascript
 db.cities.update(
@@ -109,7 +119,9 @@ db.cities.update(
 )
 ```
 
-To **rename a property** in all documents:
+## Rename
+
+To **rename a field** in all documents:
 
 ```javascript
 db.cities.update(
@@ -118,6 +130,8 @@ db.cities.update(
     { "multi": true }
 )
 ```
+
+## Array 
 
 To **update an array value** without redefining the whole array,
 we use the **positional operator ($)**:
@@ -133,6 +147,8 @@ You can use regions.0, regions.1, etc to change that specific array index's valu
 
 For arrays: **$pop (remove), $push (add), $addToSet (add if not already in)**.
 
+## Comparison 
+
 There are also **comparison operators**: **$gt, $gte, $lt, $lte, $ne**.
 
 ```javascript
@@ -145,7 +161,9 @@ db.cities.find({ "rating": { "$gt": 5, "$lt": 8 } })
 ```
 Cities which the rating is **greater than 5 and lesser than 8**.
 
-For arrays, we should use **elemMatch** which means that at least one element 
+### Comparison and Arrays 
+
+For arrays, we should use **$elemMatch** which means that at least one element 
 in the array matches all the criteria. 
 Like: do we have an element that is both > 5 and < 8?
 
@@ -157,6 +175,8 @@ that is < 8?
 ```javascript
 db.cities.find({ "trainLines": { "$elemMatch": { "$gt": 5, "$lt": 8 } } })
 ```
+
+## Projection 
 
 We can specify the fields **we want** to be returned.
 This is called the **projection parameter**:
