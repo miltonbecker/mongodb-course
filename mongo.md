@@ -239,12 +239,12 @@ Then you use the **stage operator** called **$group**.
 
 This operator can have up to 3 parameters:
 
-1. The *_id* followed by the field you want to aggregate by.
-The *_id* is called the *group key* and is required.
+1. The **_id** followed by the field you want to aggregate by.
+The **_id** is called the **group key** and is required.
   1. Note the **$** before the field name. This means the value will be replaced 
   by that field's value 
-2. (Optional) An accumulator, like a count, sum, etc. 
-3. (Optional) Another accumulator.
+2. *(Optional)* An accumulator, like a count, sum, etc. 
+3. *(Optional)* Another accumulator.
 
 ```javascript
 db.cities.aggregate([ 
