@@ -4,7 +4,7 @@ Standard databases have **rows** which go into **tables** which go into **databa
 
 Mongo has **documents** which go into **collections** which go into **databases**.
 
-**Documents** are **BSON** which are like **JSON**.
+**Documents** are stored as **BSON** which is short for **Binary JSON**.
 
 You can store any type of data that you can use in JavaScript: strings, numbers, objects, arrays...
 
@@ -230,28 +230,46 @@ Limit: limit the result to *X* documents.
 ```javascript
 db.cities.find({ "country": "France" }).skip(3).limit(10);
 ```
-## Aggregation (aka Group By)
+## Aggregation Pipeline
 
-Just like the *Group By* in relational databases, you can aggregate data in MongoDB.
+You can chain several queries in one command. 
 To do it, you use the **aggregate** method.
 
-Then you use the **stage operator** called **$group**.
+Then you use a **stage operator**, like **$group**, **$match**, **$sort**, etc. 
 
-This operator can have up to 3 parameters:
+## $group 
+
+The **$group** operator's parameters are **one *_id*** and none or 
+as **many accumulators** as needed, like explained below:
 
 1. The **_id** followed by the field you want to aggregate by.
 The **_id** is called the **group key** and is required.
   1. Note the **$** before the field name. This means the value will be replaced 
   by that field's value 
-2. *(Optional)* An accumulator, like a count, sum, etc. 
-3. *(Optional)* Another accumulator.
+2. *(Optional)* An accumulator, like a count, sum, average, max number, etc. 
 
 ```javascript
 db.cities.aggregate([ 
-    { "$group": { 
-        "_id": "$country",
-       "total": { "$sum": 1 },
-       "avg": { "$avg": "$price" }
-    }}
+    { "$group": 
+        { 
+            "_id": "$country",
+            "cities_count": { "$sum": 1 },
+            "avg_cost_of_life": { "$avg": "$price" }
+        }
+    }
 ])
 ```
+
+## Others 
+
+```javascript
+db.cities.aggregate([
+    {$match: {rating: {$gte: 8}}}, //get only the cities with rating >= 8
+    {$project: {regions: false, _id: false}}, //do not return the regions and _id fields 
+    {$group: {_id: "$country"}}, //group by country 
+    {$sort: {rating: -1}}, //sort by rating in descending order 
+    {$limit: 10} //limit the result to 10 documents 
+])
+```
+No need to wrap everything with quotes.
+
