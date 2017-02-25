@@ -237,7 +237,7 @@ To do it, you use the **aggregate** method.
 
 Then you use a **stage operator**, like **$group**, **$match**, **$sort**, etc. 
 
-## $group 
+### $group 
 
 The **$group** operator's parameters are **one *_id*** and none or 
 as **many accumulators** as needed, like explained below:
@@ -260,7 +260,7 @@ db.cities.aggregate([
 ])
 ```
 
-## Others 
+### Others 
 
 ```javascript
 db.cities.aggregate([
