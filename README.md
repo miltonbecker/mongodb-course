@@ -16,10 +16,10 @@ Show the databases:
 show dbs
 ```
 
-Select or create the 'cities' database:
+Select or create the 'test' database:
 
 ```
-use cities
+use test
 ```
 
 ## Insert 
